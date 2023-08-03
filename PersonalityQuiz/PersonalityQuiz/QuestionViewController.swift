@@ -2,8 +2,9 @@
 //  QuestionViewController.swift
 //  PersonalityQuiz
 //
-//  Created by Student on 7/26/23.
-//
+//  Created by Khamanei Ainsworth August 3, 2023
+// 
+// Last submission of the semester! Great teaching, Mr. Nelson!
 
 import UIKit
 

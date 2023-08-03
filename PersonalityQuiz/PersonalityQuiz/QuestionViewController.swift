@@ -2,26 +2,31 @@
 //  QuestionViewController.swift
 //  PersonalityQuiz
 //
-//  Created by Khamanei Ainsworth Thursday, August 3, 2023
+//  Created by Student on 7/26/23.
 //
-//  Last submission of the semester!! Great teaching, Mr. Nelson!
 
 import UIKit
 
 
 class QuestionViewController: UIViewController {
     
-    func updateSingleStack(using answers: [Answer]) {
+    
+    // why did I name it "dancer"?
+    func randAnswer(with dancer: inout [Answer]) -> Answer {
+        return dancer.remove(at: Int.random(in: 0..<dancer.count))
+    }
+    
+    func updateSingleStack(using answers: inout [Answer]) {
         singleStackView.isHidden = false;
         
-        singleButton1.setTitle(answers[0].text, for: .normal)
-        singleButton2.setTitle(answers[1].text, for: .normal)
-        singleButton3.setTitle(answers[2].text, for: .normal)
-        singleButton4.setTitle(answers[3].text, for: .normal)
+        singleButton1.setTitle(randAnswer(with: &answers).text, for: .normal)
+        singleButton2.setTitle(randAnswer(with: &answers).text, for: .normal)
+        singleButton3.setTitle(randAnswer(with: &answers).text, for: .normal)
+        singleButton4.setTitle(randAnswer(with: &answers).text, for: .normal)
         
     }
     
-    func updateMultipleStack(using answers: [Answer]) {
+    func updateMultipleStack(using answers: inout [Answer]) {
         multipleStackView.isHidden = false;
         
         multiSwitch1.isOn = false
@@ -29,10 +34,10 @@ class QuestionViewController: UIViewController {
         multiSwitch3.isOn = false
         multiSwitch4.isOn = false
         
-        multiLabel1.text = answers[0].text
-        multiLabel2.text = answers[1].text
-        multiLabel3.text = answers[2].text
-        multiLabel4.text = answers[3].text
+        multiLabel1.text = randAnswer(with: &answers).text
+        multiLabel2.text = randAnswer(with: &answers).text
+        multiLabel3.text = randAnswer(with: &answers).text
+        multiLabel4.text = randAnswer(with: &answers).text
     }
     
     func updateRangedStack(using answers: [Answer]) { rangedStackView.isHidden = false
@@ -51,15 +56,15 @@ class QuestionViewController: UIViewController {
         
         navigationItem.title = "Question #\(questionIndex+1)"
 
-        let currentAnswers = currentQuestion.answers
+        var currentAnswers = currentQuestion.answers
         let totalProgress = Float(questionIndex) / Float(maxQuestionsCount)
 
         
         switch currentQuestion.type {
         case .single:
-           updateSingleStack(using: currentAnswers)
+           updateSingleStack(using: &currentAnswers)
         case .multiple:
-            updateMultipleStack(using: currentAnswers)
+            updateMultipleStack(using: &currentAnswers)
         case .ranged:
             updateRangedStack(using: currentAnswers)
         }

@@ -5,7 +5,7 @@ public class UseGeometric {
 		Scanner stdin = new Scanner(System.in);
 		SidedObject figures[] = new SidedObject[5];
 
-		System.out.println("Create 5 shapes by entering side lengths. Enter 1-character name (s=square, t=triangle) followed by the appropiate number of sides.");
+		System.out.println("Create 5 shapes by entering side lengths. Enter 1-character name (s=square, t=triangle) followed by height (and base if triangle)");
 		for (int i=0; i < 5; i++) {
 			char c = stdin.next().charAt(0);
 

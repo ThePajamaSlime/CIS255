@@ -19,7 +19,7 @@ public class GameWithPassword {
 				// change this line to use other programs
 				else {
 					found = true;
-					RockPaperScissors2.play();
+					RockPaperScissors2_1.play();
 				}
 			}
 		}
